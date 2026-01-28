@@ -1,7 +1,7 @@
+import { Link } from "@inertiajs/react";
 import ReservationController from "@/actions/App/Http/Controllers/ReservationController";
 import AppLogoIcon from "@/components/app-logo-icon";
 import type { AuthLayoutProps } from "@/types";
-import { Link } from "@inertiajs/react";
 
 export default function AuthSimpleLayout({
     children,

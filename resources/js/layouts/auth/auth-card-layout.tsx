@@ -1,3 +1,5 @@
+import { Link } from "@inertiajs/react";
+import type { PropsWithChildren } from "react";
 import ReservationController from "@/actions/App/Http/Controllers/ReservationController";
 import AppLogoIcon from "@/components/app-logo-icon";
 import {
@@ -7,8 +9,6 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { Link } from "@inertiajs/react";
-import type { PropsWithChildren } from "react";
 
 export default function AuthCardLayout({
     children,
