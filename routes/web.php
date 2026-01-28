@@ -1,17 +1,16 @@
 <?php
 
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-use Laravel\Fortify\Features;
 
-Route::get('/', function () {
-    return Inertia::render('welcome', [
-        'canRegister' => Features::enabled(Features::registration()),
-    ]);
-})->name('home');
+Route::prefix("/")->group(function () {
+    Route::get("/", [ReservationController::class, "index"])->name("reservations");
+    Route::get("/list", [ReservationController::class, "fetchReservationList"])->name("reservations.list");
 
-Route::get('dashboard', function () {
-    return Inertia::render('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get("/create", [ReservationController::class, "create"])->name("reservations.create");
+    Route::post("/", [ReservationController::class, "store"])->name("reservations.store");
 
-require __DIR__.'/settings.php';
+    Route::post("/confirm", [ReservationController::class, "confirmPin"])->name("reservations.pin-confirm");
+});
+
+require __DIR__ . "/settings.php";
